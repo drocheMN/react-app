@@ -13,7 +13,8 @@ Additional libraries used for this project are:
   * [Material-UI](http://www.material-ui.com/)
     - Several components from this library were used.
   * [React-Tap-Event-Plugin](https://github.com/zilverline/react-tap-event-plugin)
-    - This is recommended by Material-UI as a bug fix.
+    - This is required to support onTouchTap.
+    - See [this](http://stackoverflow.com/a/34015469/988941) for more.
 
 
 

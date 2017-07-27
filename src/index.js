@@ -12,7 +12,6 @@ import Market from './Components/Market';
 import Help from './Components/Help';
 import Shipping from './Components/Shipping';
 import ThankYou from './Components/ThankYou';
-import registerServiceWorker from './registerServiceWorker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap
@@ -37,5 +36,4 @@ const Root = () => (
 );
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
 
