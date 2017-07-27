@@ -1,13 +1,13 @@
 
 ## Install
-1. Clone this repo
-   `git clone https://github.com/drocheMN/react-app.git`
+1. Clone this repo `git clone https://github.com/drocheMN/react-app.git`
 2. In project's root directory (react-app), `npm install && npm start`
 3. Open browser of choice to `http://localhost:3000/` or as directed in terminal.
 
 ## Tools
 Additional libraries used for this project are:
   * [Create React App](https://github.com/facebookincubator/create-react-app)
+    - Used for application bootstrap.
   * [React-Router](https://reacttraining.com/react-router/web/guides/philosophy)
     - Routing for this application was done through this library.
   * [Material-UI](http://www.material-ui.com/)
