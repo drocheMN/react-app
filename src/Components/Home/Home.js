@@ -14,8 +14,8 @@ const style = {
     },
     icon: {
         display: 'block',
-        height: 250,
-        width:250,
+        height: 200,
+        width:200,
         margin: 'auto',
         textAlign: 'center',
     }
@@ -23,6 +23,7 @@ const style = {
 
 const Home = () => (
     <Paper style={style.paper} zDepth={5}>
+        <h2>Home</h2>
         <HomeIcon style={style.icon} />
     </Paper>
 );

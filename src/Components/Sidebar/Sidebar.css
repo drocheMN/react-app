@@ -1,0 +1,12 @@
+.DR-drawer {
+    height: calc(100% - 64px)!;
+    top: 64!;
+}
+
+.DR-MenuItem:hover {
+    background-color: #BBDEFB !important;
+}
+
+.DR-MenuItem:link {
+    text-decoration: none;
+}

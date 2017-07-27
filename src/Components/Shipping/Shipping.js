@@ -14,9 +14,7 @@ class Shipping extends Component {
         this.params = match.params;
         
         this.state = {
-            item: {
-                shipping: '0.00'
-            }
+            shipping: '0.00'
         };
     };
 
@@ -29,7 +27,8 @@ class Shipping extends Component {
                 return false;
             })[0];
 
-            this.setState({item: item});
+            this.setState({ ...item});
+
         });
     }
 
@@ -70,67 +69,81 @@ class Shipping extends Component {
             shippingCost = '0.00';
         }
 
+
         this.setState({
-            item: {
-                shipping: `$${shippingCost}`,
-            }
+            shipping: shippingCost,
         });
+
+        return shippingCost;
     }
 
-    calculateTotalCost() {
+    calculateTotalCost(shippingCost) {
         let totalCost;
 
-        const strPrice = this.state.item.price.substring(1);        
+        const strPrice = this.state.price.substring(1);        
         const itemPrice = Number(strPrice);
-        console.log('itemPrice', itemPrice);
-        console.log('state', this.state);
-        const shippingPrice = Number(this.state.item.shipping);
+        const shippingPrice = Number(shippingCost);
 
-        totalCost = Math.floor(itemPrice + shippingPrice, 2);
+        totalCost = Number(itemPrice + shippingPrice).toFixed(2);
+
 
         this.setState({
-            item: {
-                total: `$${totalCost}`
-            }
+            total: `$${totalCost}`
         })
     }
 
     handleFormChange = event => {
-        this.setState({state: event.target.value});
-
-        this.calculateShippingCost(event.target.value);
-        this.calculateTotalCost();
+        const shippingCost = this.calculateShippingCost(event.target.value);
+        this.calculateTotalCost(shippingCost);
     }
-
 
     renderCalculatorTile() {
         return (
             <GridTile
                 className="DR-align_center DR-border_rounded DR-calculator">
-                <h2>{this.state.item.name}</h2>
-                <h3>{`Price: ${this.state.item.price}`}</h3>
-                <h3>{`S&H: ${this.state.item.shipping}`}</h3>
+                <h2>{ this.state.name }</h2>
+                <h3>{`Price: ${this.state.price}`}</h3>
+                <h3>{`S&H: $${this.state.shipping}`}</h3>
                 <Divider className="DR_divider" />
-                <h3>{`Total: ${this.state.item.total}`}</h3>
+                {
+                    this.state.total 
+                        ? <h3>{`Total: ${this.state.total}`}</h3>
+                        : <h3>{`Total: ${this.state.price}`}</h3>
+                }
             </GridTile>
         );
     }
 
     renderFormTile() {
+        const styles = {
+            button: {
+                backgroundColor: '#4CAF50',
+                border: '1px solid black',
+                borderRadius: '2px'
+            }
+        }
+
         return (
             <GridTile
                 className="DR-align_center DR-border_rounded DR-form">
-                <form className="DR-flex">
-                    <input className="DR-input DR-input_flex-1" type="text" name="name" placeholder="Name" />
-                    <input className="DR-input DR-input_flex-1" type="text" name="street" placeholder="Street" />
+                <form ref={(form) => {this.form = form;}} className="DR-flex">
+                    <input required className="DR-input DR-input_flex-1" type="text" name="name" placeholder="Name" />
+                    <input required className="DR-input DR-input_flex-1" type="text" name="street" placeholder="Street" />
                     <div className="DR-input_group DR-input_flex-1">
-                        <input className="DR-input DR-input_flex-3" type="text" name="city" placeholder="City" />
-                        <input className="DR-input DR-input_flex-1" onChange={this.handleFormChange} value={this.state.value} type="text" name="stateAbbreviation" placeholder="State" />
+                        <input ref={(city) => this.city = city } required className="DR-input DR-input_flex-3" type="text" name="city" placeholder="City" />
+                        <input
+                            required 
+                            pattern="[a-zA-Z]{2}" 
+                            className="DR-input DR-input_flex-1" 
+                            onChange={this.handleFormChange} 
+                            value={this.state.value} 
+                            type="text" 
+                            name="stateAbbreviation" 
+                            placeholder="State" />
                     </div>
-                    <input className="DR-input DR-input_flex-1" type="text" name="zipCode" placeholder="Zip Code" />
-
+                    <input required className="DR-input DR-input_flex-1" type="text" name="zipCode" placeholder="Zip Code" />
                     <Link className="DR-flex_row DR-align_right" to="/thankyou">
-                        <RaisedButton type="submit" className="DR-flex DR-align_right" label="Confirm" secondary={true} />
+                        <RaisedButton buttonStyle={styles.button} type="submit" className="DR-flex DR-align_right" label="Confirm" />
                     </Link>
                 </form>
             </GridTile>
@@ -138,7 +151,7 @@ class Shipping extends Component {
     }
 
     renderGridList() {
-        if (this.state.item) {
+        if (this.state.name) {
             return (
                 <GridList
                     cols={2}
@@ -163,7 +176,6 @@ class Shipping extends Component {
         return (
             <div className="DR-shipping">
                 { this.renderGridList() }
-                <p style={{textAlign: 'center'}}>All products come with a 30-day money back guarantee</p>
             </div>
         )
     }

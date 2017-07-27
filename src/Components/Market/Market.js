@@ -20,20 +20,34 @@ class Market extends Component {
     }
 
     renderGridTiles() {
+        const styles = {
+            title: {
+                height: '15%'
+            },
+            feature: {
+                paddingTop: 10
+            },
+            button: {
+                backgroundColor: '#4CAF50',
+                border: '1px solid black',
+                borderRadius: '2px'
+            }
+        }
+
         if (this.state.data) {
             return this.state.data.map( (tile) => (
                 <GridTile
                     className="DR-align_center DR-border_rounded DR-container"
                     key={tile.sku}>
-                    <h2>{tile.name}</h2>
-                    <h3>{tile.price}</h3>
+                    <h3 style={styles.title}>{tile.name}</h3>
+                    <h4>{`Price: ${tile.price}`}</h4>
                     <ul>
                     {tile.features.map( (feature, index) => (
-                        <li className="DR-align_left" key={index}>{feature}</li>
+                        <li style={styles.feature} className="DR-feature DR-align_left" key={index}>{feature}</li>
                     ))}
                     </ul>
                     <Link to={`/shipping/${tile.sku}`}>
-                        <RaisedButton className="DR-position_bottom DR-align_center" label="Buy" secondary={true} />
+                        <RaisedButton buttonStyle={styles.button} className="DR-position_bottom DR-align_center" label="Buy" />
                     </Link>
                 </GridTile>
                 ));

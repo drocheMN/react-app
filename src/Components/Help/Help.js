@@ -14,8 +14,8 @@ const style = {
     },
     icon: {
         display: 'block',
-        height: 250,
-        width:250,
+        height: 200,
+        width:200,
         margin: 'auto',
         textAlign: 'center',
     }
@@ -23,6 +23,7 @@ const style = {
 
 const Help = () => (
     <Paper style={style.paper} zDepth={5}>
+        <h2>Help</h2>
         <HelpOutline style={style.icon} />
     </Paper>
 );

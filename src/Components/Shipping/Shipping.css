@@ -33,6 +33,14 @@
     padding-left: 10px;
 }
 
+.DR-input:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+.DR-input:focus:inavlid {
+    outline: none;
+}
+
 .DR-input_group {
     display: flex;
     flex-direction: row;

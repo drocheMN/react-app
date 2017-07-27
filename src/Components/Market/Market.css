@@ -15,6 +15,17 @@
     transform: translateX(50%);
 }
 
+.DR-feature {
+    list-style: none;
+}
+
+.DR-feature:before {
+    content: '*';
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .DR-align_center {
     margin: 0 auto;
     text-align: center;

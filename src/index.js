@@ -24,7 +24,8 @@ const Root = () => (
         <Router>
             <div>
                 <App>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Market} />
+                    <Route path="/home" component={Home} />
                     <Route path="/market" component={Market} />
                     <Route path="/help" component={Help} />
                     <Route path="/shipping/:sku" component={Shipping} />
