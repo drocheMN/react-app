@@ -24,3 +24,4 @@ This was a fun project! There are a few things I would like to improve:
 2. Figure out how to override Material UI state styles (hover, focus, ect.) and update those styles.
 3. The form validation is lacking.  I would have liked to build out a full form validation system.  At this time, minimal required and pattern matching is implemented.
 4. Eject from create-react-app and update the build process.  Specifically, I'd like to include postCSS.
+5. Documentation is lacking.  I intend to update this as soon as possible.
