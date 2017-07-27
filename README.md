@@ -1,7 +1,7 @@
 
 ## Install
 1. Clone this repo
-  - `git clone https://github.com/drocheMN/react-app.git`
+   `git clone https://github.com/drocheMN/react-app.git`
 2. In project's root directory (react-app), `npm install && npm start`
 3. Open browser of choice to `http://localhost:3000/` or as directed in terminal.
 
