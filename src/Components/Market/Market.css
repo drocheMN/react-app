@@ -1,0 +1,30 @@
+.DR-market {
+    width: 700px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.DR-container {
+    position: relative;
+}
+
+.DR-position_bottom {
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.DR-align_center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.DR-align_left {
+    text-align: left;
+}
+
+.DR-border_rounded {
+    border: 2px solid black;
+    border-radius: 8px;
+}

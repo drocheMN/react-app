@@ -1,22 +1,45 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
+
+import Sidebar from '../Sidebar/Sidebar';
+import AppBar from 'material-ui/AppBar';
+
 import './App.css';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+    }
+
+    onLeftIconButtonTouchTap = () => this.onSidebarToggle();
+
+    onMenuItemClick = () => this.onSidebarToggle();
+
+    onSidebarToggle = () => this.setState({open: !this.state.open});
+    
+    render() {
+        return (
+            <div>
+                <div>
+                    <AppBar
+                        title="Buymart"
+                        onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap} />
+                </div>
+
+                <Sidebar 
+                    open={this.state.open}
+                    onRequestChange={this.onSidebarToggle}
+                    docked={false}
+                    onMenuItemTouchTap={this.onSidebarToggle} 
+                    className="DR-sidebar"/>
+
+                { this.props.children }
+            </div>
+        )
+    }
+};
 
 export default App;

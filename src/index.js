@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
-import App from './Components/App/App';
+import App from './Components/App';
+import Home from './Components/Home';
+import Market from './Components/Market';
+import Help from './Components/Help';
+import Shipping from './Components/Shipping';
+import ThankYou from './Components/ThankYou';
 import registerServiceWorker from './registerServiceWorker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -12,7 +21,17 @@ injectTapEventPlugin();
 
 const Root = () => (
     <MuiThemeProvider>
-        <App />
+        <Router>
+            <div>
+                <App>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/market" component={Market} />
+                    <Route path="/help" component={Help} />
+                    <Route path="/shipping/:sku" component={Shipping} />
+                    <Route path="/thankyou" component={ThankYou} />
+                </App>
+            </div>
+        </Router>
     </MuiThemeProvider>
 );
 

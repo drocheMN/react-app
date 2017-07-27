@@ -1,0 +1,72 @@
+.DR-container {
+    width: 100%;
+}
+
+.DR-shipping {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.DR-calculator {
+    min-width: 200px;
+}
+
+.DR-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.DR-flex_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.DR-input {
+    height: 40px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    color: lightslategrey;
+    background-color: lightcyan;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.DR-input_group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.DR-input_group > .DR-input_flex-1 {
+    width: 30%;
+}
+
+.DR-input_flex-1 {
+    flex: 0 1 auto;
+}
+
+.DR-input_flex-3 {
+    flex: 3 1 auto;
+    width: 70%;
+}
+
+.DR-form {
+    box-sizing: border-box;
+    padding: 20px 40px 30px 20px;
+}
+
+.DR-align_center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.DR-align_right {
+    justify-content: flex-end;
+}
+
+.DR-border_rounded {
+    border: 2px solid black;
+    border-radius: 32px;
+}
